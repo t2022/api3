@@ -45,7 +45,7 @@
       <a href="https://www.reddit.com/u/{{author}}" target="_blank">u/{{author}}</a> in 
       <a href="https://www.reddit.com/r/{{subreddit}}" target="_blank">r/{{subreddit}}</a>
     </div>
-    <div id="{{id}}" class="content">{{body}}</div>
+    <div style="display: block;" id="{{id}}" class="content">{{body}}</div>
   </div>
 </div>
 
@@ -58,6 +58,8 @@ id01.style.display = "none";
 
 var d = new Date();
 document.getElementById("todays-date").innerHTML = "Today: " + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + ", " + d.getHours() + ":" + d.getMinutes();
+
+
 </script>
 
 </body>

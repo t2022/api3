@@ -52,7 +52,7 @@ function showAll(myObject) {
 
     if(myArray[i]["body"]) {
       myArray[i]["bodyLength"] = myArray[i]["body"].length;
-      console.log(myArray[i]["body"].replaceAll('"','&quot;'));
+      // console.log(myArray[i]["body"].replaceAll('"','&quot;'));
       myArray[i]["body"] = myArray[i]["body"].replace('"','&quot;');
     }
   }
@@ -71,11 +71,30 @@ function showAll(myObject) {
   }
 
   w3.displayObject("id01", myObject);
+
+  accordion("info");
   
   if(myArray.length > 0) {
    document.getElementById("id01").style.display = "";
   }
   document.getElementById("notice").innerText = myArray.length + " Results Found"
+}
+
+function accordion(className) {
+  var acc = document.getElementsByClassName(className);
+  console.log(acc);
+  var i;
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
 }
 
 function sort2 (arr, key, order = "asc") {
