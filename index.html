@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>API3</title>
+
+<link rel="apple-touch-icon" sizes="any" href="images/icon.png">
+<link rel="icon" type="image/png" sizes="any" href="images/icon.png">
+
+<script src="showdown.js"></script>
+<link rel='manifest' href='manifest.json'>
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="searchbox">
+  <form onsubmit="searchReddit();">
+    <div class="row">
+      <input placeholder="term" id="searchterm" class="w3-col s4 search-field" />
+      <input placeholder="sub" id="subreddit" class="w3-col s4 search-field" />
+      <input placeholder="name" id="username" class="w3-col s4 search-field" />
+    </div>
+    <div class="row small-text">
+      <span style="float: right;" id="todays-date"> </span>
+      <label for="submission">Q's?:</label> <input type="checkbox" name="submission" id="submission" />
+      <!-- <label for="submission">Min Length?:</label> <input type="text" name="min-length" id="min-length" /> -->
+      <button class="w3-btn p w3-green" onclick="searchReddit();">Search</button>
+    </div>
+  </form>
+</div>
+
+<div id="notice"></div>
+
+<div id="id01" class="">
+  <div class="result" w3-repeat="data">
+    <div class="info small"> 
+      <a class="right" href="https://www.reddit.com{{permalink}}">{{timeDiff}} ago</a>
+      <a href="https://www.reddit.com/u/{{author}}" target="_blank">u/{{author}}</a> in 
+      <a href="https://www.reddit.com/r/{{subreddit}}" target="_blank">r/{{subreddit}}</a>
+    </div>
+    <div id="{{id}}" class="content">{{body}}</div>
+  </div>
+</div>
+
+<script src="w3.js"></script>
+<script src="script.js"></script>
+
+<script>
+id01 = document.getElementById("id01");
+id01.style.display = "none";
+
+var d = new Date();
+document.getElementById("todays-date").innerHTML = "Today: " + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + ", " + d.getHours() + ":" + d.getMinutes();
+</script>
+
+</body>
+
+</html>
