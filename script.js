@@ -13,7 +13,7 @@ if ("serviceWorker" in navigator) {
 }
 
 
-var limit = 10;
+var limit = 20;
 
 function listen(id) {
   var msg = document.getElementById(id).value;

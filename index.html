@@ -23,29 +23,34 @@
 <div id="searchbox">
   <form onsubmit="searchReddit();">
     <div class="row">
-      <input placeholder="term" id="searchterm" class="w3-col s4 search-field" />
-      <input placeholder="sub" id="subreddit" class="w3-col s4 search-field" />
-      <input placeholder="name" id="username" class="w3-col s4 search-field" />
+      <input placeholder="*" id="searchterm" class="w3-col s4 search-field" />
+      <input placeholder="r" id="subreddit" class="w3-col s3 search-field" />
+      <input placeholder="u" id="username" class="w3-col s3 search-field" />
+      <button class="right w3-col s2 w3-green search-button" onclick="searchReddit();">🔍</button>
     </div>
     <div class="row small-text">
-      <span style="float: right;" id="todays-date"> </span>
-      <label for="submission">Q's?:</label> <input type="checkbox" name="submission" id="submission" />
+      <span class="w3-hide" id="todays-date"> </span>
+      <label class="w3-hide" for="submission">Q's?:</label> <input hidden checked type="checkbox" name="submission" id="submission" />
       <!-- <label for="submission">Min Length?:</label> <input type="text" name="min-length" id="min-length" /> -->
-      <button class="w3-btn p w3-green" onclick="searchReddit();">Search</button>
     </div>
   </form>
+  <div class="clear"></div>
+  <hr>
 </div>
 
-<div id="notice"></div>
-
 <div id="id01" class="">
+  <div id="notice" class="small"></div>
   <div class="result" w3-repeat="data">
     <div class="info small"> 
-      <a class="right" href="https://www.reddit.com{{permalink}}">{{timeDiff}} ago</a>
-      <a href="https://www.reddit.com/u/{{author}}" target="_blank">u/{{author}}</a> in 
-      <a href="https://www.reddit.com/r/{{subreddit}}" target="_blank">r/{{subreddit}}</a>
+      <div class="left">
+        u/{{author}} in r/{{subreddit}}
+      </div>
+      <div class="right">
+        {{bodyLength}} &bull; <a href="https://www.reddit.com{{permalink}}">{{timeDiff}} ago</a>
+      </div>
+      <div class="clear"></div>
     </div>
-    <div style="display: block;" id="{{id}}" class="content">{{body}}</div>
+    <div style="display: none;" id="{{id}}" class="content">{{body}}</div>
   </div>
 </div>
 
