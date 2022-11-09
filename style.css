@@ -189,3 +189,11 @@ a:hover {
 #id01 {
   margin-top: 3em;
 }
+
+#go-top {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  padding: 0.25em 0.5em;
+  opacity: 0.5;
+}
