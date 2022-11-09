@@ -31,14 +31,10 @@ function searchReddit() {
   var term = document.getElementById("searchterm").value;
   var user = document.getElementById("username").value.replace(" ","");
   var sub = document.getElementById("subreddit").value.replace(" ","");
-  var submission = document.getElementById("submission").checked;
 
 
   var n = Date.now();
-  if (submission) {
-    w3.getHttpObject("https://api.pushshift.io/reddit/submission/search?author=" + user + "&limit=" + limit + "&subreddit=" + sub + "&q=" + term, showAll);
-  } else
-    w3.getHttpObject("https://api.pushshift.io/reddit/search?author=" + user + "&limit=" + limit + "&subreddit=" + sub + "&q=" + term, showAll);
+  w3.getHttpObject("https://api.pushshift.io/reddit/submission/search?author=" + user + "&limit=" + limit + "&subreddit=" + sub + "&q=" + term, showAll);
 }
 
 
@@ -56,18 +52,16 @@ function showAll(myObject) {
       myArray[i]["body"] = myArray[i]["body"].replace('"','&quot;');
     }
   }
-  var submission = document.getElementById("submission").checked;
-  if (submission) {
-    for (i = 0; i < myArray.length; i++) {
-      myArray[i]["body"] = myArray[i]["title"] + "\n\n" + myArray[i]["selftext"];
-      myArray[i]["body"] = myArray[i]["body"].replaceAll('&#x200B;','');
-  
-      myArray[i]["body"] = mdToHtml2(myArray[i]["body"]);
 
-      // myArray[i]["body"] = myArray[i]["body"].replaceAll('\n',' &bull; ');
-      myArray[i]["bodyLength"] = myArray[i]["body"].length;
-      myArray[i]["permalink"] = "/" + myArray[i]["id"];
-    }
+  for (i = 0; i < myArray.length; i++) {
+    myArray[i]["body"] = myArray[i]["title"] + "\n\n" + myArray[i]["selftext"];
+    myArray[i]["body"] = myArray[i]["body"].replaceAll('&#x200B;','');
+
+    myArray[i]["body"] = mdToHtml2(myArray[i]["body"]);
+
+    // myArray[i]["body"] = myArray[i]["body"].replaceAll('\n',' &bull; ');
+    myArray[i]["bodyLength"] = myArray[i]["body"].length;
+    myArray[i]["permalink"] = "/" + myArray[i]["id"];
   }
 
   w3.displayObject("id01", myObject);

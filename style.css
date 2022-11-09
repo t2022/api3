@@ -15,7 +15,6 @@ html {
 body {
   background: #222;
   color: #aaa;
-  padding: 0.5em;
 }
 
 hr {
@@ -67,6 +66,8 @@ a {
 #searchbox {
   width: 100%;
   position: fixed;
+  top: 0;
+  background-color: black;
 }
 
 
@@ -196,4 +197,12 @@ a:hover {
   right: 1em;
   padding: 0.25em 0.5em;
   opacity: 0.5;
+}
+
+#notice {
+  margin-bottom: 1em;
+}
+
+.p1 {
+  padding: 0.2em !important;
 }
